@@ -3,8 +3,8 @@
 if ( !extension_loaded('pdo') ) {
     echo "Подключите PDO для mysql";
 }
-
-require 'app/bootstrap.php';
+require 'config/config.php';
+require 'main/bootstrap.php';
 
 use app\cars;
 

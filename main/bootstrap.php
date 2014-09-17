@@ -1,6 +1,6 @@
 <?php
 
 require 'autoloader.php';
-require 'installedApps.php';
+require './config/installedApps.php';
 require 'routes.php';
 require 'database.php';
