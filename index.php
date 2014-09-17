@@ -6,9 +6,11 @@ if ( !extension_loaded('pdo') ) {
 require 'config/config.php';
 require 'main/bootstrap.php';
 
-use app\cars;
+use apps\car\CarController;
 
-$a = new CarModel();
+$controller = new CarController();
+
+echo $controller->index();
 
 //echo '$controller: ' . $controller;
 //echo '$action: ' . $action;
