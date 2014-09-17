@@ -1,4 +1,7 @@
 <?php
+
+namespace app\cars;
+
 class CarController
 {
     public function __construct ()

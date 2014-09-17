@@ -6,15 +6,14 @@ if ( !extension_loaded('pdo') ) {
 
 require 'app/bootstrap.php';
 
-
-
+use app\cars;
 
 $a = new CarModel();
 
-echo '$controller: ' . $controller;
-echo '$action: ' . $action;
+//echo '$controller: ' . $controller;
+//echo '$action: ' . $action;
 
-$carController = new CarController();
+//$carController = new CarController();
 
 
 
