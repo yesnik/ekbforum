@@ -7,10 +7,16 @@ require 'config/config.php';
 require 'main/bootstrap.php';
 
 use apps\car\CarController;
+use apps\car\CarModel;
 
 $controller = new CarController();
 
-echo $controller->index();
+
+$controller->index();
+
+$model = new CarModel();
+$stmt = $model->getAll();
+var_dump($stmt);
 
 //echo '$controller: ' . $controller;
 //echo '$action: ' . $action;

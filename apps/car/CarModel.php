@@ -1,8 +1,13 @@
 <?php
 namespace apps\car;
 
-class CarModel {
+use main\Model;
+
+class CarModel extends Model {
     public function __construct () {
-        echo "Car was created!";
+        $params = array(
+            'table' => 'cars',
+        );
+        parent::__construct($params);
     }
 }

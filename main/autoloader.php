@@ -4,8 +4,10 @@ function __autoload($class_name) {
     global $installedApps;
 
     foreach ($installedApps as $appName) {
-        require 'apps/' . $appName . '/' . $appName . 'Model.php';
-        require 'apps/' . $appName . '/' . $appName . 'Controller.php';
+        $modelClassName = $appName . 'Model';
+        include_once 'apps/' . $appName . '/' . $modelClassName . '.php';
+        $controllerClassName = $appName . 'Controller';
+        include_once 'apps/' . $appName . '/' . $appName . 'Controller.php';
     }
 }
 

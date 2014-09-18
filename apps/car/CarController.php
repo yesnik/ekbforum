@@ -2,7 +2,11 @@
 
 namespace apps\car;
 
-class CarController
+use \PDO;
+use apps\car\CarModel;
+use main\Controller;
+
+class CarController extends Controller
 {
     public function __construct ()
     {
@@ -12,7 +16,11 @@ class CarController
     public function index ()
     {
         global $db;
-        var_dump($db);
-        return 'Это индексный контроллер';
+
+        $stmt = $db->query("SELECT * FROM cars");
+
+        while($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+            var_dump($row);
+        }
     }
 }
