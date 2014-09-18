@@ -1,0 +1,16 @@
+body {
+    background: #eee;
+    font: 12px Arial, sans-serif;
+}
+.header {
+    border-bottom: 1px solid #ccc;
+    padding: 10px 0 20px;
+    font-size: 16px;
+    background: #B6B3F8;
+}
+.header__h {
+    font-size: 24px;
+    color: #fff;
+    font-weight: bold;
+    padding: 0 10px;
+}
