@@ -6,8 +6,8 @@ function __autoload($class_name) {
     foreach ($installedApps as $appName) {
         $modelClassName = $appName . 'Model';
         include_once 'apps/' . $appName . '/' . $modelClassName . '.php';
-        $controllerClassName = $appName . 'Controller';
         include_once 'apps/' . $appName . '/' . $appName . 'Controller.php';
+        include_once 'apps/' . $appName . '/' . $appName . 'View.php';
     }
 }
 
