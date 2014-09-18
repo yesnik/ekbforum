@@ -11,16 +11,13 @@ class CarController extends Controller
     public function __construct ()
     {
         echo 'Это контроллер МАШИНЫ';
+        $this->model = new CarModel();
     }
 
     public function index ()
     {
         global $db;
-
-        $stmt = $db->query("SELECT * FROM cars");
-
-        while($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
-            var_dump($row);
-        }
+        $rows = $this->model->getAll();
+        var_dump($rows);
     }
 }

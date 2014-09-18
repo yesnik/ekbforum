@@ -14,9 +14,12 @@ $controller = new CarController();
 
 $controller->index();
 
-$model = new CarModel();
-$stmt = $model->getAll();
-var_dump($stmt);
+//$model = new CarModel();
+//$rows = $model->getAll();
+//var_dump($rows);
+
+
+
 
 //echo '$controller: ' . $controller;
 //echo '$action: ' . $action;

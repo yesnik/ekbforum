@@ -1,22 +1,30 @@
 <?php
 namespace main;
 
+use PDO;
+
 class Model
 {
     private $table;
     private $querySet;
+    private $pdoStmt;
 
-    public function __construct ($params)
+    public function __construct ($className)
     {
-        $this->table = $params['table'];
+        $wasFound = preg_match('/(\w+)(Model|Controller|View)/', $className, $matches);
+        if ($wasFound) {
+            $this->table = strtolower($matches[1]) . 's';
+        } else {
+            $this->table = strtolower($className) . 's';
+        };
+
     }
 
     public function getAll ()
     {
         global $db;
         $query = 'SELECT * FROM ' . $this->table;
-        echo 'Query: ' . $query;
         $stmt = $db->query($query);
-        return $stmt;
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 }
