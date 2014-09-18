@@ -11,8 +11,39 @@ use apps\site\SiteController;
 //use apps\car\CarModel;
 
 
-$controller = new SiteController();
-$controller->index();
+$controller = new CarController();
+$vars = array();
+$vars['cars'] = array(
+    array(
+        'id' => 1,
+        'title' => 'BMW',
+        'color' => 'red'
+    ),
+    array(
+        'id' => 2,
+        'title' => 'Audi',
+        'color' => 'black'
+    ),
+
+);
+echo $controller->parse($vars);
+
+
+/*
+$mainController = new SiteController();
+$vars['coder'] = 'Johny';
+$html = $mainController->parse($vars);
+echo $html;
+*/
+
+
+//ob_start();
+
+
+//$html = ob_get_clean();
+
+
+//ob_end_flush();
 
 //$controller = new CarController();
 //$controller->index();

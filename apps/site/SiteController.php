@@ -16,8 +16,4 @@ class SiteController extends Controller
         parent::__construct(__CLASS__);
     }
 
-    public function index ()
-    {
-        echo 'Hello This is Site Controller';
-    }
 }

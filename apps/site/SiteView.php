@@ -6,8 +6,8 @@ use main\View;
 
 class SiteView extends View
 {
-    public function __construct ()
+    public function __construct ($entityName)
     {
-
+        parent::__construct($entityName);
     }
 }

@@ -15,10 +15,15 @@ class Controller
         $model = "\\apps\\" . $entityName . "\\" . $entityName . "Model";
         $this->model = new $model();
         $view = "\\apps\\" . $entityName . "\\" . $entityName . "View";
-        $this->view = new $view();
+        $this->view = new $view($entityName);
     }
 
     public function createChildModel ($className) {
 
+    }
+
+    public function parse ($vars)
+    {
+        return $this->view->parse($vars);
     }
 }
