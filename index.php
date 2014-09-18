@@ -7,7 +7,8 @@ require 'config/config.php';
 require 'main/bootstrap.php';
 
 use apps\car\CarController;
-use apps\car\CarModel;
+//use apps\car\CarModel;
+
 
 $controller = new CarController();
 
