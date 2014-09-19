@@ -19,7 +19,6 @@ class SiteController extends Controller
         $vars['coder'] = 'Johny';
         $vars['content'] = $content;
         $html = $this->view->parse($vars);
-        echo $html;
+        return $html;
     }
-
 }

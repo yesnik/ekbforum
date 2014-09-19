@@ -33,7 +33,7 @@ $content = $controller->index();
 //$content = $controller->view->parse($vars);
 
 $mainController = new SiteController();
-$mainController->main($content);
+echo $mainController->main($content);
 
 
 
