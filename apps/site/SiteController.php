@@ -13,4 +13,13 @@ class SiteController extends Controller
         parent::__construct(__CLASS__);
     }
 
+    public function main ($content)
+    {
+        $vars['title'] = 'Главная страница';
+        $vars['coder'] = 'Johny';
+        $vars['content'] = $content;
+        $html = $this->view->parse($vars);
+        echo $html;
+    }
+
 }

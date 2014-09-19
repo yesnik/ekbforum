@@ -33,10 +33,8 @@ $content = $controller->index();
 //$content = $controller->view->parse($vars);
 
 $mainController = new SiteController();
-$vars['coder'] = 'Johny';
-$vars['content'] = $content;
-$html = $mainController->view->parse($vars);
-echo $html;
+$mainController->main($content);
+
 
 
 
