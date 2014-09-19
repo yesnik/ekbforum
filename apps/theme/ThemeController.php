@@ -4,6 +4,7 @@ namespace apps\theme;
 
 use \PDO;
 use apps\car\CarModel;
+use apps\comment\CommentModel;
 use main\Controller;
 use utils\Utils;
 
@@ -29,14 +30,15 @@ class ThemeController extends Controller
         if (empty($vars['theme'])) {
             return 'Не найдено записи с id = ' . $id;
         }
+        $commentModel = new CommentModel();
+        $comments = $commentModel->getForTheme($id);
+        $vars['comments'] = $comments;
 
         //Преобразуем кавычки и спец. символы в html-сущности
         array_walk_recursive($vars, function(&$var) {
             $var = htmlspecialchars($var);
         });
-
         $this->view->setTemplate('detail.php');
-        //$vars_escaped = array_map('htmlspecialchars', $vars);
         return $this->view->parse($vars);
     }
 }
