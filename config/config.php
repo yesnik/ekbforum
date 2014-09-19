@@ -1,2 +1,3 @@
 <?php
+global $SITE_ROOT;
 $SITE_ROOT = $_SERVER['DOCUMENT_ROOT'];

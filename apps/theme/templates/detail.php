@@ -27,3 +27,5 @@
 <?php } else { ?>
     <p>Пока никто не оставил комментарий. Вы будете первым.</p>
 <?php } ?>
+
+<?php loadTemplate('comment', 'form_add_comment.php'); ?>

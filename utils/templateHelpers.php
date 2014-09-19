@@ -7,3 +7,8 @@ function url($entityName = 'site', $action = 'index', $id = '') {
     }
     return $url;
 }
+
+function loadTemplate ($appName, $templateName) {
+    global $SITE_ROOT;
+    require $SITE_ROOT . '/apps/' . $appName . '/templates/' . $templateName;
+}
