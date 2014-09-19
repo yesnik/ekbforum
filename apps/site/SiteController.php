@@ -8,9 +8,6 @@ use utils\Utils;
 
 class SiteController extends Controller
 {
-    protected $model;
-    protected $view;
-
     public function __construct ()
     {
         parent::__construct(__CLASS__);

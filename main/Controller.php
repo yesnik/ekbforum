@@ -6,7 +6,7 @@ use utils\Utils;
 class Controller
 {
     protected $model;
-    protected $view;
+    public $view;
 
     public function __construct ($className = '')
     {
@@ -22,8 +22,4 @@ class Controller
 
     }
 
-    public function parse ($vars)
-    {
-        return $this->view->parse($vars);
-    }
 }

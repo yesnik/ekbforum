@@ -24,9 +24,11 @@ $vars['cars'] = array(
         'title' => 'Audi',
         'color' => 'black'
     ),
-
 );
-echo $controller->parse($vars);
+
+
+
+echo $controller->view->parse($vars);
 
 
 /*
