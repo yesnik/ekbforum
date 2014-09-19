@@ -1,0 +1,27 @@
+.comment {
+    background: #e9e9e9;
+    border: 1px solid #eee;
+    padding: 10px 5px;
+    list-style: none;
+}
+.comment__author {
+    font-size: 12px;
+    color: #580F0F;
+}
+.comment__item {
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #ccc;
+    overflow: hidden;
+}
+.comment__right-col {
+    margin-left: 100px;
+}
+.comment__time {
+    font-size: 10px;
+    color: #777;
+}
+.comment__left-col {
+    float: left;
+    width: 150px;
+}

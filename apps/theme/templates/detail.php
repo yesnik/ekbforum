@@ -6,9 +6,22 @@
 <h3>Комментарии</h3>
 
 <?php if (!empty($vars['comments'])){ ?>
-<ul>
+<ul class="comment">
     <?php foreach ($vars['comments'] as $comment): ?>
-        <li><?= $comment['comment']; ?></li>
+        <li class="comment__item">
+            <div class="comment__left-col">
+                <div class="comment__author">
+                    <?= $comment['name']; ?>
+                </div>
+                <div class="comment__time">
+                    <?= date("d.m.Y в H:i", strtotime($comment['created_at'])) ?>
+                </div>
+            </div>
+
+            <div class="comment__right-col">
+                <?= $comment['comment']; ?>
+            </div>
+        </li>
     <?php endforeach ?>
 </ul>
 <?php } else { ?>
