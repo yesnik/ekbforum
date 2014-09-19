@@ -9,10 +9,14 @@ require 'main/bootstrap.php';
 use apps\car\CarController;
 use apps\site\SiteController;
 
+var_dump($action);
+
 
 //Формирование контента страницы
 $controller = new $controllerName();
-$content = $controller->index();
+
+$content = '';
+eval('$content = $controller->' . $action . ';');
 
 //Формирование шаблона сайта
 $mainController = new SiteController();

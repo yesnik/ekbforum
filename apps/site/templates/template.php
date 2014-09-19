@@ -8,6 +8,13 @@
 <body>
 <header class="header">
     <div class="header__h">Это заголовок сайта</div>
+    <nav>
+        <ul>
+            <li>
+                <a href="/" title="Главная страница">Главная</a>
+            </li>
+        </ul>
+    </nav>
 </header>
 <h2></h2>
 <?= $vars['content'] ?>

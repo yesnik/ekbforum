@@ -1,5 +1,7 @@
 <ul>
     <?php foreach($vars['themes'] as $theme): ?>
-        <li><?= $theme['author_id'] ?> - <?= $theme['title'] ?> [комментариев: <?= $theme['comments_num'] ?>]</li>
+
+        <li><?= $theme['name'] ?> -
+            <a href="<?= url('theme', 'view', $theme['id']) ?>"><?= $theme['title'] ?></a> [комментариев: <?= $theme['comments_num'] ?>]</li>
     <?php endforeach ?>
 </ul>

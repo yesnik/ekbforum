@@ -5,6 +5,7 @@ require 'Controller.php';
 require 'Model.php';
 require 'View.php';
 require './utils/Utils.php';
+require './utils/templateHelpers.php';
 require './config/installedApps.php';
 require 'routes.php';
 require 'database.php';
