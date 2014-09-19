@@ -13,6 +13,8 @@ if ($uri) {
         $action = 'index';
     }
 } else {
-    $controller = 'index';
+    $controller = 'car';
     $action = 'index';
 }
+
+$controllerName = '\\apps\\' . $controller . '\\' . $controller . 'Controller';

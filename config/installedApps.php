@@ -3,4 +3,5 @@
 $installedApps = array (
     'site',
     'car',
+    'theme',
 );
