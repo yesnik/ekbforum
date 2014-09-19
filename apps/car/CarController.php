@@ -18,18 +18,8 @@ class CarController extends Controller
 
     public function index ()
     {
-        global $db;
-        global $SITE_ROOT;
-        //$rows = $this->model->getAll();
-        $templateVars = $this->model->getById(2);
-        $templateVars['title'] = 'Заголовок страницы';
-        //var_dump($row);
-        $template = $SITE_ROOT . 'templates/base.html.php';
-        $raw_html = file_get_contents($template);
-
-        foreach($templateVars as $key => $value) {
-            $raw_html = preg_replace('/{{\s*'.$key.'\s*}}/', $value, $raw_html);
-        }
-        echo $raw_html;
+        $vars['title'] = 'Список автомобилей';
+        $vars['cars'] = $this->model->getAll();
+        return $this->view->parse($vars);
     }
 }

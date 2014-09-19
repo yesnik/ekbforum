@@ -28,15 +28,16 @@ $vars['cars'] = array(
 
 
 
-echo $controller->view->parse($vars);
+$content = $controller->index();
 
+//$content = $controller->view->parse($vars);
 
-/*
 $mainController = new SiteController();
 $vars['coder'] = 'Johny';
-$html = $mainController->parse($vars);
+$vars['content'] = $content;
+$html = $mainController->view->parse($vars);
 echo $html;
-*/
+
 
 
 //ob_start();
