@@ -31,4 +31,15 @@ class UserController extends Controller
     {
 
     }
+
+    public function getOrCreate($userName)
+    {
+        $rsUser = $this->model->getUserByName($userName);
+        if ($rsUser) {
+            return $rsUser;
+        }
+
+        //Создаем в БД нового пользователя
+
+    }
 }

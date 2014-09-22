@@ -13,7 +13,7 @@ class CommentModel extends Model {
     {
         global $db;
         $query = "SELECT c.id, c.theme_id, c.created_at, a.name FROM " . $this->table . " c
-                LEFT JOIN authors a ON a.id = c.author_id";
+                LEFT JOIN users a ON a.id = c.user_id";
         $stmt = $db->query($query);
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
@@ -22,7 +22,7 @@ class CommentModel extends Model {
     {
         global $db;
         $query = "SELECT c.id, c.theme_id, c.comment, c.created_at, a.name FROM " . $this->table . " c
-                LEFT JOIN authors a ON a.id = c.author_id
+                LEFT JOIN users a ON a.id = c.user_id
                 WHERE theme_id = :theme_id
                 ORDER BY created_at DESC";
         $stmt = $db->prepare($query);

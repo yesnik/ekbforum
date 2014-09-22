@@ -4,6 +4,8 @@ namespace apps\comment;
 
 use \PDO;
 use apps\car\CarModel;
+use apps\user\UserController;
+use apps\user\UserModel;
 use main\Controller;
 use utils\Utils;
 use utils\FlashMessage;
@@ -69,6 +71,10 @@ class CommentController extends Controller
             return $themeController->view($_POST['theme_id'], $vars);
         }
 
+        $userController = new UserController();
+        $userController->getOrCreate('Джон Смит');
+
+        //var_dump($rsUser);
 
         //$this->model->create($vars);
 

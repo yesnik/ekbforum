@@ -14,7 +14,7 @@ class ThemeModel extends Model {
     {
         global $db;
         $query = 'SELECT t.id, t.title, t.content, comments_num, a.name FROM ' . $this->table . ' t ' .
-        ' LEFT JOIN authors a ON a.id = t.author_id';
+        ' LEFT JOIN users a ON a.id = t.user_id';
         $stmt = $db->query($query);
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }

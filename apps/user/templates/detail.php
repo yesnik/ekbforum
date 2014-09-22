@@ -10,7 +10,7 @@
     <?php foreach ($vars['comments'] as $comment): ?>
         <li class="comment__item">
             <div class="comment__left-col">
-                <div class="comment__author">
+                <div class="comment__user">
                     <?= $comment['name']; ?>
                 </div>
                 <div class="comment__time">
