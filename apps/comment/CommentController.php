@@ -7,6 +7,7 @@ use apps\car\CarModel;
 use main\Controller;
 use utils\Utils;
 use utils\FlashMessage;
+use apps\theme\ThemeController;
 
 
 class CommentController extends Controller
@@ -48,20 +49,25 @@ class CommentController extends Controller
         if (empty($_POST['theme_id'])) {
             $flashMessage->addError('Не указан параметр theme_id');
         }
+
         if (empty($_POST['name'])) {
             $flashMessage->addError('Укажите имя');
+        } else {
+            $vars['formAddComment']['name'] = $_POST['name'];
         }
+
         if (empty($_POST['comment'])) {
             $flashMessage->addError('Укажите комментарий');
+        } else {
+            $vars['formAddComment']['comment'] = $_POST['comment'];
         }
 
-        return $flashMessage->getHtml();
+        $flashMessageHtml = $flashMessage->getHtml();
 
-        $data = array(
-            'themeId' => (int)$_POST['theme_id'],
-            'name' => $_POST['name'],
-            'comment' => $_POST['comment'],
-        );
+        $vars['flashMessageHtml'] = $flashMessageHtml;
+
+        $themeController = new ThemeController();
+        return $themeController->view($_POST['theme_id'], $vars);
 
 
         $this->model->create($data);

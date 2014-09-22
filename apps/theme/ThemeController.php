@@ -24,7 +24,7 @@ class ThemeController extends Controller
         return $this->view->parse($vars);
     }
 
-    public function view ($id)
+    public function view ($id, $vars = array())
     {
         $vars['theme'] = $this->model->getById($id);
         if (empty($vars['theme'])) {
@@ -35,9 +35,13 @@ class ThemeController extends Controller
         $vars['comments'] = $comments;
 
         //Преобразуем кавычки и спец. символы в html-сущности
-        array_walk_recursive($vars, function(&$var) {
+        array_walk_recursive($vars['theme'], function(&$var) {
             $var = htmlspecialchars($var);
         });
+        array_walk_recursive($vars['comments'], function(&$var) {
+            $var = htmlspecialchars($var);
+        });
+        error_reporting(E_ALL & ~E_NOTICE);
         $this->view->setTemplate('detail.php');
         return $this->view->parse($vars);
     }

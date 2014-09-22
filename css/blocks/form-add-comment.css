@@ -4,10 +4,11 @@
     border-radius: 7px;
     width: 500px;
     margin-top: 15px;
+    overflow: hidden;
 }
 .form-add-comment__header {
     font-size: 14px;
-    color: #888;
+    color: #444;
     padding-top: 10px;
     margin: 0 0 15px;
 }
