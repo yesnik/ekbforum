@@ -13,11 +13,6 @@ class UserModel extends Model {
     public function getAll ()
     {
         global $db;
-        /*
-        $query = 'SELECT t.id, t.title, t.content, comments_num, a.name FROM ' . $this->table . ' t ' .
-        ' LEFT JOIN authors a ON a.id = t.author_id';
-        $stmt = $db->query($query);
-        return $stmt->fetchAll(PDO::FETCH_ASSOC);
-        */
+
     }
 }
