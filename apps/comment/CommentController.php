@@ -46,6 +46,7 @@ class CommentController extends Controller
     public function create ()
     {
         $flashMessage = new FlashMessage();
+        $vars = array();
         if (empty($_POST['theme_id'])) {
             $flashMessage->addError('Не указан параметр theme_id');
         }
@@ -62,16 +63,15 @@ class CommentController extends Controller
             $vars['formAddComment']['comment'] = $_POST['comment'];
         }
 
-        $flashMessageHtml = $flashMessage->getHtml();
+        if( $flashMessage->exists() ) {
+            $vars['flashMessageHtml'] = $flashMessage->getHtml();
+            $themeController = new ThemeController();
+            return $themeController->view($_POST['theme_id'], $vars);
+        }
 
-        $vars['flashMessageHtml'] = $flashMessageHtml;
 
-        $themeController = new ThemeController();
-        return $themeController->view($_POST['theme_id'], $vars);
+        //$this->model->create($vars);
 
-
-        $this->model->create($data);
-        var_dump($_POST);
         return '123132';
     }
 }

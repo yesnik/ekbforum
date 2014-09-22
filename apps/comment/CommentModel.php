@@ -31,7 +31,7 @@ class CommentModel extends Model {
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 
-    public function create($data)
+    public function create($vars)
     {
         echo 'CREATE MODEL';
     }
