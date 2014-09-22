@@ -1,7 +1,17 @@
 @import url("blocks/menu.css");
 @import url("blocks/header.css");
+@import url("blocks/footer.css");
 @import url("blocks/comment.css");
 @import url("blocks/form-add-comment.css");
+@import url("blocks/flash-messages.css");
+
+
+html,body {
+    height: 100%; /* задаем высоту тела документа */
+}
+* html .main { /* хак для ie6 */
+    height: 100%; /* для ие6, т.к. не понимает min-height */
+}
 
 .page {
     background: #eee;
@@ -10,11 +20,28 @@
     margin: 0 auto;
 }
 .page__h1 {
-    font-size: 24px;
+    background: none repeat scroll 0 0 #c9e39c;
+    color: #173c0e;
+    font-size: 22px;
+    padding: 3px 10px;
+    margin-top: 25px;
 }
 .page__h2 {
-    font-size: 20px;
+    font-size: 16px;
+}
+.page__h2_underline {
+    border-bottom: 1px solid #9c9c9c;
+}
+.page__content {
+    min-height: 100%; /* задаем минимальную высоту основного блока */
 }
 .page__header {
 
 }
+.page__footer {
+
+    height: 40px; /* высота подвала */
+    margin: -40px; /* делаем отрицательный отступ по высоте равный высоте подвла, чтобы четко вписаться в размер экрана */
+
+}
+

@@ -1,9 +1,15 @@
 .form-add-comment {
-    padding-left: 155px;
+    background: none repeat scroll 0 0 #ccc;
+    padding: 0 10px 5px;
+    border-radius: 7px;
+    width: 500px;
+    margin-top: 15px;
 }
 .form-add-comment__header {
     font-size: 14px;
     color: #888;
+    padding-top: 10px;
+    margin: 0 0 15px;
 }
 .form-add-comment__text {
     border: 1px solid #adadad;
@@ -11,6 +17,7 @@
     font: 12px Arial,sans-serif;
     padding: 5px 2px;
     width: 500px;
+    max-width: 500px;
 }
 .form-add-comment__input {
     border: 1px solid #adadad;

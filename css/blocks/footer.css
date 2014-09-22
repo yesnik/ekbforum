@@ -1,0 +1,11 @@
+.footer {
+    border-top: 1px solid #aaa;
+    display: block;
+    padding: 10px 0;
+    width: 960px;
+    margin: 0 auto;
+}
+
+.hFooter {
+    height: 60px;
+}

@@ -6,6 +6,8 @@ use \PDO;
 use apps\car\CarModel;
 use main\Controller;
 use utils\Utils;
+use utils\FlashMessage;
+
 
 class CommentController extends Controller
 {
@@ -38,5 +40,32 @@ class CommentController extends Controller
         $this->view->setTemplate('detail.php');
         //$vars_escaped = array_map('htmlspecialchars', $vars);
         return $this->view->parse($vars);
+    }
+
+    public function create ()
+    {
+        $flashMessage = new FlashMessage();
+        if (empty($_POST['theme_id'])) {
+            $flashMessage->addError('Не указан параметр theme_id');
+        }
+        if (empty($_POST['name'])) {
+            $flashMessage->addError('Укажите имя');
+        }
+        if (empty($_POST['comment'])) {
+            $flashMessage->addError('Укажите комментарий');
+        }
+
+        return $flashMessage->getHtml();
+
+        $data = array(
+            'themeId' => (int)$_POST['theme_id'],
+            'name' => $_POST['name'],
+            'comment' => $_POST['comment'],
+        );
+
+
+        $this->model->create($data);
+        var_dump($_POST);
+        return '123132';
     }
 }

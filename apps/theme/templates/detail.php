@@ -3,7 +3,7 @@
     <?= $vars['theme']['content'] ?>
 </p>
 
-<h2 class="page__h2">Комментарии</h2>
+<h2 class="page__h2 page__h2_underline">Комментарии</h2>
 
 <?php if (!empty($vars['comments'])){ ?>
 <ul class="comment">
