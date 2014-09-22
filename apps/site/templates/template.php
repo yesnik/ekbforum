@@ -5,18 +5,21 @@
     <title><?= $vars['title'] ?></title>
     <link rel="stylesheet" href="/css/styles.css"/>
 </head>
-<body>
-<header class="header">
-    <div class="header__h">Это заголовок сайта</div>
-    <nav>
-        <ul>
-            <li>
-                <a href="/" title="Главная страница">Главная</a>
+<body class="page">
+<header class="page__header">
+    <div class="header">
+        <div class="header__h">Форум Екатеринбурга</div>
+        <div class="header__teaser">Спрашивайте и участвуйте в обсуждениях.</div>
+        <ul class="menu">
+            <li class="menu__item menu__link_active">
+                <a class="menu__link" href="/" title="Главная страница">Главная</a>
+            </li>
+            <li class="menu__item">
+                <a class="menu__link" href="/" title="Сообщения">Сообщения</a>
             </li>
         </ul>
-    </nav>
+    </div>
 </header>
-<h2></h2>
 <?= $vars['content'] ?>
 <footer>
     &copy 2014 Все права защищены.

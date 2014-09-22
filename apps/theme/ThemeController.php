@@ -41,4 +41,9 @@ class ThemeController extends Controller
         $this->view->setTemplate('detail.php');
         return $this->view->parse($vars);
     }
+
+    public function create ()
+    {
+
+    }
 }

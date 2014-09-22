@@ -1,9 +1,9 @@
-<h1>Тема: <?= $vars['theme']['title'] ?></h1>
+<h1 class="page__h1">Тема: <?= $vars['theme']['title'] ?></h1>
 <p>
     <?= $vars['theme']['content'] ?>
 </p>
 
-<h3>Комментарии</h3>
+<h2 class="page__h2">Комментарии</h2>
 
 <?php if (!empty($vars['comments'])){ ?>
 <ul class="comment">
@@ -28,4 +28,4 @@
     <p>Пока никто не оставил комментарий. Вы будете первым.</p>
 <?php } ?>
 
-<?php loadTemplate('comment', 'form_add_comment.php'); ?>
+<?php loadTemplate('comment', 'form_add_comment.php', $vars); ?>

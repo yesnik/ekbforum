@@ -1,0 +1,35 @@
+.menu {
+    list-style: none;
+    margin: 0;
+    padding: 0 10px 0 0;
+    overflow: hidden;
+    position: relative;
+    top: -4px;
+}
+.menu__item {
+    display: inline;
+    float: left;
+    margin: 3px;
+    padding: 0;
+}
+.menu__link {
+    background: #B5C548;
+    border-radius: 30px;
+    display: block;
+    margin-right: 5px;
+    padding: 5px 15px;
+    text-decoration: none;
+    color: #4f5400;
+    text-shadow: 1px 1px 0 #f1ff91;
+    box-shadow: 0 0 3px #456245;
+    position: relative;
+}
+.menu__link:hover {
+    background: #D9E846;
+}
+.menu__link:active {
+    top: 1px;
+}
+.menu__link_active a {
+    background: #D9E846;
+}

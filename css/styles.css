@@ -1,18 +1,20 @@
+@import url("blocks/menu.css");
+@import url("blocks/header.css");
 @import url("blocks/comment.css");
+@import url("blocks/form-add-comment.css");
 
-body {
+.page {
     background: #eee;
     font: 12px Arial, sans-serif;
+    width: 968px;
+    margin: 0 auto;
 }
-.header {
-    border-bottom: 1px solid #ccc;
-    padding: 10px 0 20px;
-    font-size: 16px;
-    background: #B6B3F8;
-}
-.header__h {
+.page__h1 {
     font-size: 24px;
-    color: #fff;
-    font-weight: bold;
-    padding: 0 10px;
+}
+.page__h2 {
+    font-size: 20px;
+}
+.page__header {
+
 }
