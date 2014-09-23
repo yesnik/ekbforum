@@ -21,6 +21,8 @@ class ThemeController extends Controller
     {
         $vars['title'] = 'Список тем';
         $vars['themes'] = $this->model->getAll();
+        //Отключаем нотайсы, чтобы не выводились ошибки в шаблоне о неопределенной переменной
+        error_reporting(E_ALL & ~E_NOTICE);
         return $this->view->parse($vars);
     }
 
