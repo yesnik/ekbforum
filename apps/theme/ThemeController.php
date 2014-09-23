@@ -7,6 +7,8 @@ use apps\car\CarModel;
 use apps\comment\CommentModel;
 use main\Controller;
 use utils\Utils;
+use utils\FlashMessage;
+use apps\user\UserController;
 
 class ThemeController extends Controller
 {
@@ -77,24 +79,21 @@ class ThemeController extends Controller
             return $themeController->index($vars);
         }
 
-        //Создаем сообщение
-
-        /*
         $userController = new UserController();
         $rsUser = $userController->getOrCreate($_POST['name']);
 
+        //Создаем сообщение
         $vars = array(
-            'theme_id' => $_POST['theme_id'],
-            'comment' => $_POST['comment'],
+            'title' => $_POST['title'],
+            'content' => $_POST['content'],
             'user_id' => $rsUser['id']
         );
 
-        $commentId = $this->model->create($vars);
-        if ($commentId) {
-            $uri = '/theme/view/' . $_POST['theme_id'];
+        $themeId = $this->model->create($vars);
+        if ($themeId) {
+            $uri = '/theme/view/' . $themeId;
             Utils::redirect($uri);
         }
         return false;
-        */
     }
 }
