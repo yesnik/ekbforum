@@ -13,26 +13,9 @@
     margin: 0 0 15px;
 }
 .form-add-comment__text {
-    border: 1px solid #adadad;
-    box-shadow: 1px 1px 2px #bbb inset;
-    font: 12px Arial,sans-serif;
-    padding: 5px 2px;
     width: 500px;
     max-width: 500px;
 }
 .form-add-comment__input {
-    border: 1px solid #adadad;
-    box-shadow: 1px 1px 2px #bbb inset;
-    font: 12px Arial,sans-serif;
-    padding: 5px 4px;
     width: 230px;
-}
-.form-add-comment__input:focus, .form-add-comment__text:focus {
-    border: 1px solid #648edc;
-}
-.form-add-comment__label {
-    color: #222;
-    font-size: 12px;
-    position: relative;
-    top: -2px;
 }

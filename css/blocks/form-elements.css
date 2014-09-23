@@ -1,0 +1,22 @@
+.input {
+    border: 1px solid #adadad;
+    box-shadow: 1px 1px 2px #bbb inset;
+    font: 12px Arial,sans-serif;
+    padding: 5px 4px;
+}
+.input:focus, .textarea:focus {
+    border: 1px solid #648edc;
+}
+
+.label {
+    color: #222;
+    font-size: 12px;
+    position: relative;
+    top: -2px;
+}
+.textarea {
+    border: 1px solid #adadad;
+    box-shadow: 1px 1px 2px #bbb inset;
+    font: 12px Arial,sans-serif;
+    padding: 5px 2px;
+}

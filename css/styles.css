@@ -1,6 +1,7 @@
 @import url("blocks/menu.css");
 @import url("blocks/header.css");
 @import url("blocks/footer.css");
+@import url("blocks/form-elements.css");
 @import url("blocks/comment.css");
 @import url("blocks/form-add-comment.css");
 @import url("blocks/flash-messages.css");
