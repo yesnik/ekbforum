@@ -47,6 +47,7 @@ class CommentController extends Controller
 
     public function create ()
     {
+        //Проверяем переданные пользователем параметры. При ошибке выводим сообщение.
         $flashMessage = new FlashMessage();
         $vars = array();
         if (empty($_POST['theme_id'])) {
@@ -72,12 +73,19 @@ class CommentController extends Controller
         }
 
         $userController = new UserController();
-        $userController->getOrCreate('Джон Смит');
+        $rsUser = $userController->getOrCreate($_POST['name']);
 
-        //var_dump($rsUser);
+        $vars = array(
+            'theme_id' => $_POST['theme_id'],
+            'comment' => $_POST['comment'],
+            'user_id' => $rsUser['id']
+        );
 
-        //$this->model->create($vars);
-
-        return '123132';
+        $commentId = $this->model->create($vars);
+        if ($commentId) {
+            $uri = '/theme/view/' . $_POST['theme_id'];
+            Utils::redirect($uri);
+        }
+        return false;
     }
 }

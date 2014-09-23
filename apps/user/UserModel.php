@@ -4,6 +4,12 @@ namespace apps\user;
 use main\Model;
 use \PDO;
 
+/**
+ * Класс для работы с пользователями
+ * Class UserModel
+ *
+ * @package apps\user
+ */
 class UserModel extends Model {
     protected $table;
     public function __construct () {
@@ -16,15 +22,21 @@ class UserModel extends Model {
 
     }
 
-    public function getUserByName($userName) {
+    /**
+     * Добавление пользователя в таблицу users
+     * @param $userName
+     *
+     * @return string
+     */
+    public function create ($userName)
+    {
         global $db;
-        if (!$userName) {
-            return false;
-        }
-        $query = "SELECT * FROM users WHERE name = :userName";
+        $query = 'INSERT INTO ' . $this->table . ' (name) VALUES (:name)';
         $stmt = $db->prepare($query);
-        $stmt->bindParam(':userName', $userName, PDO::PARAM_STR);
-        $stmt->execute();
-        return $stmt->fetch(PDO::FETCH_ASSOC);
+        $wasInserted = $stmt->execute(array('name' => $userName));
+        if ($wasInserted) {
+            return $db->lastInsertId();
+        }
+        return false;
     }
 }

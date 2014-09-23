@@ -34,12 +34,20 @@ class UserController extends Controller
 
     public function getOrCreate($userName)
     {
-        $rsUser = $this->model->getUserByName($userName);
-        if ($rsUser) {
-            return $rsUser;
+        //$rsUser = $this->model->getUserByName($userName);
+        $rsUserList = $this->model->getWhere('name', $userName);
+
+        if ($rsUserList) {
+            return $rsUserList[0];
         }
 
         //Создаем в БД нового пользователя
+        $userId = $this->model->create($userName);
+        if ($userId) {
+            return $this->model->getById($userId);
+        } else {
+            trigger_error('Не удалось создать пользователя');
+        }
 
     }
 }

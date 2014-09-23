@@ -24,15 +24,12 @@ class CommentModel extends Model {
         $query = "SELECT c.id, c.theme_id, c.comment, c.created_at, a.name FROM " . $this->table . " c
                 LEFT JOIN users a ON a.id = c.user_id
                 WHERE theme_id = :theme_id
-                ORDER BY created_at DESC";
+                ORDER BY created_at ASC";
         $stmt = $db->prepare($query);
         $stmt->bindParam(':theme_id', $themeId, PDO::PARAM_INT);
         $stmt->execute();
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 
-    public function create($vars)
-    {
-        echo 'CREATE MODEL';
-    }
+
 }
