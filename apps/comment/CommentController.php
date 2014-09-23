@@ -57,13 +57,13 @@ class CommentController extends Controller
         if (empty($_POST['name'])) {
             $flashMessage->addError('Укажите имя');
         } else {
-            $vars['formAddComment']['name'] = $_POST['name'];
+            $vars['form']['name'] = $_POST['name'];
         }
 
         if (empty($_POST['comment'])) {
             $flashMessage->addError('Укажите комментарий');
         } else {
-            $vars['formAddComment']['comment'] = $_POST['comment'];
+            $vars['form']['comment'] = $_POST['comment'];
         }
 
         if( $flashMessage->exists() ) {

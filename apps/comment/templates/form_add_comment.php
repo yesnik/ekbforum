@@ -8,12 +8,12 @@
         <p>
             <label class="label" for="name">Имя</label><br>
             <input class="form-add-comment__input input" type="text"
-                   name="name" placeholder="Ваше имя" value="<?= $vars['formAddComment']['name'] ?>" />
+                   name="name" placeholder="Ваше имя" value="<?= $vars['form']['name'] ?>" />
         </p>
         <p>
             <label class="label" for="comment">Комментарий</label><br>
             <textarea class="form-add-comment__text textarea" name="comment"
-                      placeholder="Ваш комментарий"><?= $vars['formAddComment']['comment'] ?></textarea>
+                      placeholder="Ваш комментарий"><?= $vars['form']['comment'] ?></textarea>
         </p>
         <p>
             <input type="submit" value="Добавить"/>

@@ -17,7 +17,7 @@ class ThemeController extends Controller
         parent::__construct(__CLASS__);
     }
 
-    public function index ()
+    public function index ($vars = array())
     {
         $vars['title'] = 'Список тем';
         $vars['themes'] = $this->model->getAll();
@@ -50,6 +50,51 @@ class ThemeController extends Controller
 
     public function create ()
     {
+        //Проверяем переданные пользователем параметры. При ошибке выводим сообщение.
+        $flashMessage = new FlashMessage();
+        $vars = array();
+        if (empty($_POST['name'])) {
+            $flashMessage->addError('Укажите имя');
+        } else {
+            $vars['form']['name'] = $_POST['name'];
+        }
 
+        if (empty($_POST['content'])) {
+            $flashMessage->addError('Укажите содержание темы');
+        } else {
+            $vars['form']['content'] = $_POST['content'];
+        }
+
+        if (empty($_POST['title'])) {
+            $flashMessage->addError('Укажите заголовок темы');
+        } else {
+            $vars['form']['title'] = $_POST['title'];
+        }
+
+        if( $flashMessage->exists() ) {
+            $vars['flashMessageHtml'] = $flashMessage->getHtml();
+            $themeController = new ThemeController();
+            return $themeController->index($vars);
+        }
+
+        //Создаем сообщение
+
+        /*
+        $userController = new UserController();
+        $rsUser = $userController->getOrCreate($_POST['name']);
+
+        $vars = array(
+            'theme_id' => $_POST['theme_id'],
+            'comment' => $_POST['comment'],
+            'user_id' => $rsUser['id']
+        );
+
+        $commentId = $this->model->create($vars);
+        if ($commentId) {
+            $uri = '/theme/view/' . $_POST['theme_id'];
+            Utils::redirect($uri);
+        }
+        return false;
+        */
     }
 }
