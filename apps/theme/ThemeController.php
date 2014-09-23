@@ -22,6 +22,7 @@ class ThemeController extends Controller
     public function index ($vars = array())
     {
         $vars['title'] = 'Список тем';
+        //$vars['themes'] = $this->model->getAll();
         $vars['themes'] = $this->model->getAll();
         //Отключаем нотайсы, чтобы не выводились ошибки в шаблоне о неопределенной переменной
         error_reporting(E_ALL & ~E_NOTICE);
