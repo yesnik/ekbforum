@@ -24,8 +24,6 @@ class Utils
     }
 
     public static function getScripts($controller, $action) {
-        echo $controller, $action;
-
         $uri = $controller . '/' . $action;
         $arScripts = array();
         switch ($uri) {
