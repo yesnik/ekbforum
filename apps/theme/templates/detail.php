@@ -17,8 +17,8 @@
                     <?= date("d.m.Y в H:i", strtotime($comment['created_at'])) ?>
                 </div>
                 <div class="comment__user-info">
-                    С нами с: 12.12.2012<br />
-                    Сообщений: 555
+                    С нами с: <?= date("d.m.Y", strtotime($comment['user_created_at'])) ?><br />
+                    Сообщений: <?= $comment['user_comments_num'] ?>
                 </div>
             </div>
 

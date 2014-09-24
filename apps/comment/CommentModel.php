@@ -21,11 +21,12 @@ class CommentModel extends Model {
     public function getForTheme($themeId)
     {
         global $db;
-        $query = "SELECT c.id, c.theme_id, c.comment, c.created_at, u.name, u.created_at AS user_created_at
-                FROM " . $this->table . " c
-                LEFT JOIN users u ON u.id = c.user_id
-                WHERE theme_id = :theme_id
-                ORDER BY created_at ASC";
+        $query = 'SELECT c.id, c.theme_id, c.comment, c.created_at,
+            u.name, u.created_at AS user_created_at, (
+            SELECT COUNT(*) FROM comments c2 WHERE c2.user_id = c.user_id ) AS user_comments_num
+            FROM ' . $this->table . ' c
+            LEFT JOIN users u ON u.id = c.user_id
+            WHERE theme_id = 1';
         $stmt = $db->prepare($query);
         $stmt->bindParam(':theme_id', $themeId, PDO::PARAM_INT);
         $stmt->execute();
