@@ -8,25 +8,25 @@ $id = null;
 if ($uri) {
     $uriArr = explode('/', $uri);
     if (sizeof($uriArr) > 1 && !empty($uriArr[1])) {
-        $controller = $uriArr[0];
-        $action = $uriArr[1];
+        $controllerName = $uriArr[0];
+        $actionName = $uriArr[1];
     } else {
-        $controller = $uriArr[0];
-        $action = 'index';
+        $controllerName = $uriArr[0];
+        $actionName = 'index';
     }
     if (isset($uriArr[2]) && is_numeric($uriArr[2])) {
         $id = $uriArr[2];
     }
 } else {
-    $action = 'index';
-    $controller = 'theme';
+    $actionName = 'index';
+    $controllerName = 'theme';
 }
 
 //Если совместно с действием передан id, то передаем его в контроллер
 if ($id != null && is_numeric($id)) {
-    $action .= "($id)";
+    $actionMethod = $actionName . "($id)";
 } else {
-    $action .= "()";
+    $actionMethod = $actionName . "()";
 }
 
-$controllerName = '\\apps\\' . $controller . '\\' . $controller . 'Controller';
+$controllerFilePath = '\\apps\\' . $controllerName . '\\' . $controllerName . 'Controller';

@@ -22,4 +22,17 @@ class Utils
         header('Location: ' . $uri);
         die();
     }
+
+    public static function getScripts($controller, $action) {
+        echo $controller, $action;
+
+        $uri = $controller . '/' . $action;
+        $arScripts = array();
+        switch ($uri) {
+            case 'theme/view':
+                $arScripts[] = '/apps/comment/js/comment.js';
+                break;
+        }
+        return $arScripts;
+    }
 }

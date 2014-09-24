@@ -4,6 +4,12 @@
     <meta charset="utf-8">
     <title><?= $vars['title'] ?></title>
     <link rel="stylesheet" href="/css/styles.css"/>
+    <script type="text/javascript" src="/js/jquery/jquery-1.11.1.min.js"></script>
+    <?php
+        foreach($vars['js'] as $scriptPath) {
+            echo '<script type="text/javascript" src="' . $scriptPath . '"></script>';
+        }
+    ?>
 </head>
 <body class="page">
 <div class="page__content">

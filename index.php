@@ -8,16 +8,20 @@ require 'main/bootstrap.php';
 
 use apps\car\CarController;
 use apps\site\SiteController;
+use utils\Utils;
 
-var_dump($action);
+var_dump($actionName);
 
 
 //Формирование контента страницы
-$controller = new $controllerName();
+$controller = new $controllerFilePath();
 
-$content = '';
-eval('$content = $controller->' . $action . ';');
+$vars = array();
+eval('$vars["content"] = $controller->' . $actionMethod . ';');
+
+//Добавляем скрипты
+$vars['js'] = Utils::getScripts($controllerName, $actionName);
 
 //Формирование шаблона сайта
 $mainController = new SiteController();
-echo $mainController->main($content);
+echo $mainController->main($vars);

@@ -6,7 +6,7 @@
 <h2 class="page__h2 page__h2_underline">Комментарии (<?= $vars['theme']['comments_num'] ?>)</h2>
 
 <?php if (!empty($vars['comments'])){ ?>
-<ul class="comment">
+<ul id="comments_holder" class="comment">
     <?php foreach ($vars['comments'] as $comment): ?>
         <li class="comment__item">
             <div class="comment__left-col">
