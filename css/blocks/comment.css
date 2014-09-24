@@ -6,8 +6,17 @@
     padding: 0;
 }
 .comment__user {
+    border-bottom: 1px dotted #a07777;
+    color: #580f0f;
     font-size: 12px;
-    color: #580F0F;
+    cursor: pointer;
+}
+.comment__user:hover {
+    color: #C22F2F;
+}
+.comment__user-info {
+    color: #777;
+    font-size: 10px;
 }
 .comment__item {
     padding: 10px 0;

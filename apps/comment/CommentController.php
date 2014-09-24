@@ -83,6 +83,7 @@ class CommentController extends Controller
 
         $commentId = $this->model->create($vars);
         if ($commentId) {
+            $this->model->increaseCommentCounter($_POST['theme_id']);
             $uri = '/theme/view/' . $_POST['theme_id'];
             Utils::redirect($uri);
         }

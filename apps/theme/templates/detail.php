@@ -3,18 +3,22 @@
     <?= $vars['theme']['content'] ?>
 </p>
 
-<h2 class="page__h2 page__h2_underline">Комментарии</h2>
+<h2 class="page__h2 page__h2_underline">Комментарии (<?= $vars['theme']['comments_num'] ?>)</h2>
 
 <?php if (!empty($vars['comments'])){ ?>
 <ul class="comment">
     <?php foreach ($vars['comments'] as $comment): ?>
         <li class="comment__item">
             <div class="comment__left-col">
-                <div class="comment__user">
+                <span title="О пользователе" class="comment__user">
                     <?= $comment['name']; ?>
-                </div>
+                </span>
                 <div class="comment__time">
                     <?= date("d.m.Y в H:i", strtotime($comment['created_at'])) ?>
+                </div>
+                <div class="comment__user-info">
+                    С нами с: 12.12.2012<br />
+                    Сообщений: 555
                 </div>
             </div>
 
