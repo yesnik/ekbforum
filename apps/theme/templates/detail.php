@@ -1,4 +1,7 @@
-<h1 class="page__h1">Тема: <?= $vars['theme']['title'] ?></h1>
+<h1 class="page__h1">
+    <span class="page__h1_author"><?= $vars['theme']['name'] ?></span>
+    &laquo;<?= $vars['theme']['title'] ?>&raquo;
+</h1>
 <p>
     <?= $vars['theme']['content'] ?>
 </p>

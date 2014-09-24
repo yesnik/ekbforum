@@ -30,4 +30,17 @@ class ThemeModel extends Model {
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 
+    public function getById ($id)
+    {
+        global $db;
+        $query = 'SELECT t.*, u.name FROM ' . $this->table . ' t
+            LEFT JOIN users u ON u.id = t.user_id
+            WHERE t.id = :id';
+        echo $query;
+        $stmt = $db->prepare($query);
+        $stmt->bindParam(':id', $id, PDO::PARAM_INT);
+        $stmt->execute();
+        return $stmt->fetch(PDO::FETCH_ASSOC);
+    }
+
 }
