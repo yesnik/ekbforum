@@ -7,8 +7,6 @@ use utils\Utils;
 class Model
 {
     public $table;
-    private $querySet;
-    private $pdoStmt;
 
     public function __construct($className)
     {

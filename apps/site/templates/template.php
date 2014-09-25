@@ -21,9 +21,6 @@
                 <li class="menu__item menu__link_active">
                     <a class="menu__link" href="/" title="Главная страница">Главная</a>
                 </li>
-                <li class="menu__item">
-                    <a class="menu__link" href="/" title="Сообщения">Сообщения</a>
-                </li>
             </ul>
         </div>
     </header>

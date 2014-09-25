@@ -2,14 +2,12 @@
 
 namespace apps\comment;
 
-use \PDO;
-use apps\car\CarModel;
-use apps\user\UserController;
-use apps\user\UserModel;
 use main\Controller;
-use utils\Utils;
-use utils\FlashMessage;
 use apps\theme\ThemeController;
+use apps\user\UserController;
+use utils\FlashMessage;
+use utils\Utils;
+
 
 
 class CommentController extends Controller

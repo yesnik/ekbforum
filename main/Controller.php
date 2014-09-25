@@ -17,9 +17,4 @@ class Controller
         $view = "\\apps\\" . $entityName . "\\" . $entityName . "View";
         $this->view = new $view($entityName);
     }
-
-    public function createChildModel ($className) {
-
-    }
-
 }

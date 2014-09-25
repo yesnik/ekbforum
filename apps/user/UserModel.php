@@ -15,12 +15,6 @@ class UserModel extends Model {
         parent::__construct(__CLASS__);
     }
 
-    public function getAll ()
-    {
-        global $db;
-
-    }
-
     /**
      * Добавление пользователя в таблицу users
      * @param $userName

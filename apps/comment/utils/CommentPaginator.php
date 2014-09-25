@@ -7,7 +7,7 @@ use utils\Paginator;
 
 class CommentPaginator extends Paginator {
     private $model;
-    private $itemsPerPage = 3;
+    private $itemsPerPage = 10;
     private $itemsAmount;
     private $page;
     public function __construct ($model, $themeId)

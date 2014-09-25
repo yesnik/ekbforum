@@ -4,7 +4,6 @@
     <?= $vars['flashMessageHtml'] ?>
 
     <form action="/comment/create" method="post" xmlns="http://www.w3.org/1999/html">
-
         <p>
             <label class="label" for="name">Имя</label><br>
             <input class="form-add-comment__input input" type="text"

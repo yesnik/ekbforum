@@ -2,15 +2,15 @@
 
 namespace apps\theme;
 
-use \PDO;
-use apps\comment\CommentModel;
-use apps\comment\utils\CommentPaginator;
-use apps\theme\utils\ThemePaginator;
 use main\Controller;
-use utils\Utils;
-use utils\FlashMessage;
 use apps\user\UserController;
 use apps\theme\ThemeModel;
+use apps\theme\utils\ThemePaginator;
+use apps\comment\CommentModel;
+use apps\comment\utils\CommentPaginator;
+use utils\Utils;
+use utils\FlashMessage;
+
 
 class ThemeController extends Controller
 {

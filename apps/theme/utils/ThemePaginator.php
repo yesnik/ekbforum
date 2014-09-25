@@ -7,7 +7,7 @@ use utils\Paginator;
 
 class ThemePaginator extends Paginator {
     private $model;
-    private $itemsPerPage = 3;
+    private $itemsPerPage = 10;
     private $itemsAmount;
     private $page;
     public function __construct ($model, $vars = array())
@@ -40,7 +40,6 @@ class ThemePaginator extends Paginator {
     protected function getItemsTotal($themeId = 1)
     {
         global $db;
-        //Общее число записей
         $query = 'SELECT count(*) as items_total FROM ' . $this->model->table;
         $stmt = $db->prepare($query);
         $stmt->bindParam(':theme_id', $themeId, PDO::PARAM_INT);

@@ -1,16 +1,13 @@
 <?php
 
+use apps\site\SiteController;
+use utils\Utils;
+
 if ( !extension_loaded('pdo') ) {
     echo "Подключите PDO для mysql";
 }
 require 'config/config.php';
 require 'main/bootstrap.php';
-
-use apps\car\CarController;
-use apps\site\SiteController;
-use utils\Utils;
-
-var_dump($actionName);
 
 //Формирование контента страницы
 $controller = new $controllerFilePath();
