@@ -31,6 +31,13 @@
         </li>
     <?php endforeach ?>
 </ul>
+<ul class="pagination">
+    <?php foreach($vars['pages'] as $i => $pageUrl):  ?>
+        <li class="pagination__item">
+            <a class="pagination__link" href="<?= $pageUrl ?>"><?= ($i + 1) ?></a>
+        </li>
+    <?php endforeach ?>
+</ul>
 <?php } else { ?>
     <p>Пока никто не оставил комментарий. Вы будете первым.</p>
 <?php } ?>

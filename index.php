@@ -12,7 +12,6 @@ use utils\Utils;
 
 var_dump($actionName);
 
-
 //Формирование контента страницы
 $controller = new $controllerFilePath();
 

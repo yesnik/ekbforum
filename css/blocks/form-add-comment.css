@@ -5,6 +5,7 @@
     width: 500px;
     margin-top: 15px;
     overflow: hidden;
+    clear: both;
 }
 .form-add-comment__header {
     font-size: 14px;

@@ -1,0 +1,24 @@
+.pagination {
+    list-style: none;
+    clear: both;
+    overflow: hidden;
+    margin: 10px 10px 30px 20px;
+    padding: 0;
+}
+.pagination__item {
+    float: left;
+    margin-right: 5px;
+}
+.pagination__link {
+    padding: 5px 10px;
+    background: #ccc;
+    font-size: 14px;
+    line-height: 28px;
+    border-radius: 5px;
+}
+.pagination__link:hover {
+    background: #f4bebe;
+}
+.pagination__link_active {
+    background: #F19D9D;
+}

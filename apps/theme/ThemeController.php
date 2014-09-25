@@ -36,8 +36,15 @@ class ThemeController extends Controller
             return 'Не найдено записи с id = ' . $id;
         }
         $commentModel = new CommentModel();
-        $comments = $commentModel->getForTheme($id);
+        $page = isset($_GET['page']) ? $_GET['page'] : 1;
+        $comments = $commentModel->getForTheme($id, $page);
         $vars['comments'] = $comments;
+
+        $vars['pages'] = array(
+            '/theme/view/' . $id . '/?page=1',
+            '/theme/view/' . $id . '/?page=2',
+            '/theme/view/' . $id . '/?page=3',
+        );
 
         //Преобразуем кавычки и спец. символы в html-сущности
         array_walk_recursive($vars['theme'], function(&$var) {
