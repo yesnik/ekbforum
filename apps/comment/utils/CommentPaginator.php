@@ -10,10 +10,10 @@ class CommentPaginator extends APaginator {
     private $itemsPerPage = 3;
     private $itemsAmount;
     private $page;
-    public function __construct ($model, $vars = array())
+    public function __construct ($model, $themeId)
     {
         $this->model = $model;
-        $this->itemsAmount = (int)$this->getItemsTotal($vars['themeId']);
+        $this->itemsAmount = (int)$this->getItemsTotal($themeId);
     }
 
     public function getPagesUrls($id)

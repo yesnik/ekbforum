@@ -23,13 +23,10 @@ class ThemeController extends Controller
 
     public function index ($vars = array())
     {
-        $vars['title'] = 'Список тем';
-        //$vars['themes'] = $this->model->getAll();
-
-
         $page = isset($_GET['page']) ? $_GET['page'] : 1;
-        $vars['page_current'] = $page;
 
+        $vars['title'] = 'Список тем';
+        $vars['page_current'] = $page;
         $vars['themes'] = $this->model->getAll();
 
         $commentModel = new CommentModel();
@@ -53,11 +50,8 @@ class ThemeController extends Controller
         $page = isset($_GET['page']) ? $_GET['page'] : 1;
         $vars['page_current'] = $page;
         $commentModel = new CommentModel();
-        $params = array(
-            'themeId' => $id,
-            'page' => $page
-        );
-        $paginator = new CommentPaginator($commentModel, $params);
+
+        $paginator = new CommentPaginator($commentModel, $id);
         $vars['comments'] = $paginator->getPageItems($page, $id);
         $vars['pages'] = $paginator->getPagesUrls($id);
 
