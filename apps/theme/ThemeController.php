@@ -53,7 +53,7 @@ class ThemeController extends Controller
 
         $paginator = new CommentPaginator($commentModel, $id);
         $vars['comments'] = $paginator->getPageItems($page, $id);
-        $vars['pages'] = $paginator->getPagesUrls($id);
+        $vars['pagination_pages_urls'] = $paginator->getPagesUrls($id);
 
         //Преобразуем кавычки и спец. символы в html-сущности
         array_walk_recursive($vars['theme'], function(&$var) {
