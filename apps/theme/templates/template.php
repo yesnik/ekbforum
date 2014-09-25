@@ -13,5 +13,6 @@
         </li>
     <?php endforeach ?>
 </ul>
+<?= loadTemplate('site', 'pagination_block.php', $vars) ?>
 
 <?= loadTemplate('theme', 'form_add_theme.php', $vars) ?>

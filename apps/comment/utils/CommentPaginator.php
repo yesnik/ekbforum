@@ -7,23 +7,34 @@ use utils\APaginator;
 
 class CommentPaginator extends APaginator {
     private $model;
-    private $pagesPerPage = 3;
-    private $itemsTotal;
+    private $itemsPerPage = 3;
+    private $itemsAmount;
     private $page;
     public function __construct ($model, $vars = array())
     {
         $this->model = $model;
-        $this->itemsTotal = (int)$this->getItemsTotal($vars['themeId']);
+        $this->itemsAmount = (int)$this->getItemsTotal($vars['themeId']);
     }
 
     public function getPagesUrls($id)
     {
-        $pagesNum = (int)ceil($this->itemsTotal / $this->pagesPerPage);
+        $pagesNum = (int)ceil($this->itemsAmount / $this->itemsPerPage);
         $arUrls = array();
         for($i = 1; $i <= $pagesNum; $i++) {
             $arUrls[] = '/theme/view/' . $id . '/?page=' . $i;
         }
         return $arUrls;
+    }
+
+    public function getPageItems($page, $themeId)
+    {
+        $params = array(
+            'page' => $page,
+            'itemsAmount' => $this->itemsAmount,
+            'themeId' => $themeId,
+            'commentsPerPage' => $this->itemsPerPage
+        );
+        return $this->model->getForTheme($params);
     }
 
     protected function getItemsTotal($themeId)
@@ -36,6 +47,11 @@ class CommentPaginator extends APaginator {
         $stmt->execute();
         $res = $stmt->fetch(PDO::FETCH_ASSOC);
         return $res['items_total'];
+    }
+
+    public function getItemsAmount()
+    {
+        return $this->itemsAmount;
     }
 
 }

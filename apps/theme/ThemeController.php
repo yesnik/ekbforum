@@ -6,6 +6,7 @@ use \PDO;
 use apps\car\CarModel;
 use apps\comment\CommentModel;
 use apps\comment\utils\CommentPaginator;
+use apps\theme\utils\ThemePaginator;
 use main\Controller;
 use utils\Utils;
 use utils\FlashMessage;
@@ -24,7 +25,20 @@ class ThemeController extends Controller
     {
         $vars['title'] = 'Список тем';
         //$vars['themes'] = $this->model->getAll();
+
+
+        $page = isset($_GET['page']) ? $_GET['page'] : 1;
+        $vars['page_current'] = $page;
+
         $vars['themes'] = $this->model->getAll();
+
+        $commentModel = new CommentModel();
+        $params = array(
+            'page' => $page
+        );
+        $paginator = new ThemePaginator($commentModel, $params);
+        $vars['pages'] = $paginator->getPagesUrls();
+
         //Отключаем нотайсы, чтобы не выводились ошибки в шаблоне о неопределенной переменной
         error_reporting(E_ALL & ~E_NOTICE);
         return $this->view->parse($vars);
@@ -36,17 +50,15 @@ class ThemeController extends Controller
         if (empty($vars['theme'])) {
             return 'Не найдено записи с id = ' . $id;
         }
-        $commentModel = new CommentModel();
         $page = isset($_GET['page']) ? $_GET['page'] : 1;
         $vars['page_current'] = $page;
-        $comments = $commentModel->getForTheme($id, $page);
-        $vars['comments'] = $comments;
-
+        $commentModel = new CommentModel();
         $params = array(
             'themeId' => $id,
             'page' => $page
         );
         $paginator = new CommentPaginator($commentModel, $params);
+        $vars['comments'] = $paginator->getPageItems($page, $id);
         $vars['pages'] = $paginator->getPagesUrls($id);
 
         //Преобразуем кавычки и спец. символы в html-сущности
