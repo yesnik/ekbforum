@@ -10,6 +10,7 @@ use main\Controller;
 use utils\Utils;
 use utils\FlashMessage;
 use apps\user\UserController;
+use apps\theme\ThemeModel;
 
 class ThemeController extends Controller
 {
@@ -22,17 +23,12 @@ class ThemeController extends Controller
 
     public function index ($vars = array())
     {
-        $page = isset($_GET['page']) ? $_GET['page'] : 1;
-
         $vars['title'] = 'Список тем';
-        $vars['page_current'] = $page;
-
-
-        $commentModel = new CommentModel();
+        $commentModel = new ThemeModel();
         $paginator = new ThemePaginator($commentModel);
-        $vars['pages'] = $paginator->getPagesUrls();
-        $vars['themes'] = $this->model->getAll();
-
+        $vars['page_current'] = $paginator->getCurrentPage();
+        $vars['pagination_pages_urls'] = $paginator->getPagesUrls();
+        $vars['themes'] = $paginator->getPageItems();
         //Отключаем нотайсы, чтобы не выводились ошибки в шаблоне о неопределенной переменной
         error_reporting(E_ALL & ~E_NOTICE);
         return $this->view->parse($vars);
@@ -45,9 +41,7 @@ class ThemeController extends Controller
             return 'Не найдено записи с id = ' . $id;
         }
 
-
         $commentModel = new CommentModel();
-
         $paginator = new CommentPaginator($commentModel, $id);
         $vars['page_current'] = $paginator->getCurrentPage();
         $vars['comments'] = $paginator->getPageItems($id);

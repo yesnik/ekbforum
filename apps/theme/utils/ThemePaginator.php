@@ -8,17 +8,18 @@ use utils\Paginator;
 class ThemePaginator extends Paginator {
     private $model;
     private $itemsPerPage = 3;
-    private $itemsTotal;
+    private $itemsAmount;
     private $page;
     public function __construct ($model, $vars = array())
     {
+        parent::__construct();
         $this->model = $model;
-        $this->itemsTotal = (int)$this->getItemsTotal();
+        $this->itemsAmount = (int)$this->getItemsTotal();
     }
 
     public function getPagesUrls($id = 0)
     {
-        $pagesNum = (int)ceil($this->itemsTotal / $this->itemsPerPage);
+        $pagesNum = (int)ceil($this->itemsAmount / $this->itemsPerPage);
         $arUrls = array();
         for($i = 1; $i <= $pagesNum; $i++) {
             $arUrls[] = '/?page=' . $i;
@@ -26,11 +27,21 @@ class ThemePaginator extends Paginator {
         return $arUrls;
     }
 
+    public function getPageItems()
+    {
+        $params = array(
+            'page' => $this->currentPage,
+            'itemsAmount' => $this->itemsAmount,
+            'commentsPerPage' => $this->itemsPerPage
+        );
+        return $this->model->getThemesPaginated($params);
+    }
+
     protected function getItemsTotal($themeId = 1)
     {
         global $db;
         //Общее число записей
-        $query = 'SELECT count(*) as items_total FROM ' . $this->model->table . ' WHERE theme_id = :theme_id';
+        $query = 'SELECT count(*) as items_total FROM ' . $this->model->table;
         $stmt = $db->prepare($query);
         $stmt->bindParam(':theme_id', $themeId, PDO::PARAM_INT);
         $stmt->execute();
