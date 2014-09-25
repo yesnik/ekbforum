@@ -1,8 +1,8 @@
 <?php
 
+//Список установленных приложений в папке /apps
 $installedApps = array (
     'site',
-    'car',
     'theme',
     'comment',
     'user',

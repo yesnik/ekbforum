@@ -33,16 +33,7 @@ class ThemeModel extends Model {
     public function getThemesPaginated($params)
     {
         global $db;
-
-        /*
-         $params = array(
-            'page' => $this->currentPage,
-            'itemsAmount' => $this->itemsAmount,
-            'commentsPerPage' => $this->itemsPerPage
-        );
-         * */
         $offset = ($params['page'] - 1) * $params['commentsPerPage'];
-
         $query = 'SELECT t.id, t.title, t.created_at, t.comments_num,
                 u2.name, c2.created_at AS last_comment_created_at,
                 u.name AS last_comment_name FROM ' . $this->table . ' t
@@ -57,9 +48,6 @@ class ThemeModel extends Model {
             WHERE c2.created_at = max_date
                 OR c2.created_at IS NULL
                 LIMIT ' . $offset . ',' . $params['commentsPerPage'];
-
-        echo $query;
-
         $stmt = $db->query($query);
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }

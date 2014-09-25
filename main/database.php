@@ -7,14 +7,8 @@ class Database {
         if (self::$db) {
             return self::$db;
         }
-
-        $host = 'localhost';
-        $dbname = 'test';
-        $user = 'root';
-        $password = '';
-
         try {
-            $db = new PDO("mysql:host=$host;dbname=$dbname", $user, $password);
+            $db = new PDO("mysql:host=" . DB_HOST . ";dbname=" . DB_NAME, DB_USER, DB_PASSWORD);
             $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
             $db->exec("set names utf8");
         }
