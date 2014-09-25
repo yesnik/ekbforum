@@ -6,7 +6,7 @@ use utils\Utils;
 
 class Model
 {
-    protected $table;
+    public $table;
     private $querySet;
     private $pdoStmt;
 

@@ -5,6 +5,7 @@ namespace apps\theme;
 use \PDO;
 use apps\car\CarModel;
 use apps\comment\CommentModel;
+use apps\comment\utils\CommentPaginator;
 use main\Controller;
 use utils\Utils;
 use utils\FlashMessage;
@@ -37,14 +38,16 @@ class ThemeController extends Controller
         }
         $commentModel = new CommentModel();
         $page = isset($_GET['page']) ? $_GET['page'] : 1;
+        $vars['page_current'] = $page;
         $comments = $commentModel->getForTheme($id, $page);
         $vars['comments'] = $comments;
 
-        $vars['pages'] = array(
-            '/theme/view/' . $id . '/?page=1',
-            '/theme/view/' . $id . '/?page=2',
-            '/theme/view/' . $id . '/?page=3',
+        $params = array(
+            'themeId' => $id,
+            'page' => $page
         );
+        $paginator = new CommentPaginator($commentModel, $params);
+        $vars['pages'] = $paginator->getPagesUrls($id);
 
         //Преобразуем кавычки и спец. символы в html-сущности
         array_walk_recursive($vars['theme'], function(&$var) {
@@ -102,6 +105,6 @@ class ThemeController extends Controller
             $uri = '/theme/view/' . $themeId;
             Utils::redirect($uri);
         }
-        return false;
+        return FALSE;
     }
 }

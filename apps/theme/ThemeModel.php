@@ -5,7 +5,7 @@ use main\Model;
 use \PDO;
 
 class ThemeModel extends Model {
-    protected $table;
+    public $table;
     public function __construct () {
         parent::__construct(__CLASS__);
     }
@@ -36,7 +36,6 @@ class ThemeModel extends Model {
         $query = 'SELECT t.*, u.name FROM ' . $this->table . ' t
             LEFT JOIN users u ON u.id = t.user_id
             WHERE t.id = :id';
-        echo $query;
         $stmt = $db->prepare($query);
         $stmt->bindParam(':id', $id, PDO::PARAM_INT);
         $stmt->execute();

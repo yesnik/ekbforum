@@ -11,7 +11,6 @@ use \PDO;
  * @package apps\user
  */
 class UserModel extends Model {
-    protected $table;
     public function __construct () {
         parent::__construct(__CLASS__);
     }

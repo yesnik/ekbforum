@@ -8,6 +8,10 @@ require './utils/Utils.php';
 require './utils/templateHelpers.php';
 require './utils/FlashMessage.php';
 require './config/installedApps.php';
+
+require './utils/APaginator.php';
+require './apps/comment/utils/CommentPaginator.php';
+
 require 'routes.php';
 require 'database.php';
 
