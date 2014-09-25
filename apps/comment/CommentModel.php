@@ -23,7 +23,6 @@ class CommentModel extends Model {
     {
         global $db;
         $offset = ($params['page'] - 1) * $params['commentsPerPage'];
-
         $query = 'SELECT c.id, c.theme_id, c.comment, c.created_at,
             u.name, u.created_at AS user_created_at, (
             SELECT COUNT(*) FROM comments c2 WHERE c2.user_id = c.user_id ) AS user_comments_num
@@ -34,7 +33,6 @@ class CommentModel extends Model {
         $stmt->bindParam(':theme_id', $params['themeId'], PDO::PARAM_INT);
         $stmt->execute();
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
-
     }
 
     public function increaseCommentCounter($id)

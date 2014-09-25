@@ -3,7 +3,6 @@
 namespace apps\theme;
 
 use \PDO;
-use apps\car\CarModel;
 use apps\comment\CommentModel;
 use apps\comment\utils\CommentPaginator;
 use apps\theme\utils\ThemePaginator;
@@ -27,14 +26,12 @@ class ThemeController extends Controller
 
         $vars['title'] = 'Список тем';
         $vars['page_current'] = $page;
-        $vars['themes'] = $this->model->getAll();
+
 
         $commentModel = new CommentModel();
-        $params = array(
-            'page' => $page
-        );
-        $paginator = new ThemePaginator($commentModel, $params);
+        $paginator = new ThemePaginator($commentModel);
         $vars['pages'] = $paginator->getPagesUrls();
+        $vars['themes'] = $this->model->getAll();
 
         //Отключаем нотайсы, чтобы не выводились ошибки в шаблоне о неопределенной переменной
         error_reporting(E_ALL & ~E_NOTICE);
@@ -47,12 +44,13 @@ class ThemeController extends Controller
         if (empty($vars['theme'])) {
             return 'Не найдено записи с id = ' . $id;
         }
-        $page = isset($_GET['page']) ? $_GET['page'] : 1;
-        $vars['page_current'] = $page;
+
+
         $commentModel = new CommentModel();
 
         $paginator = new CommentPaginator($commentModel, $id);
-        $vars['comments'] = $paginator->getPageItems($page, $id);
+        $vars['page_current'] = $paginator->getCurrentPage();
+        $vars['comments'] = $paginator->getPageItems($id);
         $vars['pagination_pages_urls'] = $paginator->getPagesUrls($id);
 
         //Преобразуем кавычки и спец. символы в html-сущности
@@ -99,13 +97,11 @@ class ThemeController extends Controller
         $userController = new UserController();
         $rsUser = $userController->getOrCreate($_POST['name']);
 
-        //Создаем сообщение
         $vars = array(
             'title' => $_POST['title'],
             'content' => $_POST['content'],
             'user_id' => $rsUser['id']
         );
-
         $themeId = $this->model->create($vars);
         if ($themeId) {
             $uri = '/theme/view/' . $themeId;

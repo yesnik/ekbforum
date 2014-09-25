@@ -3,11 +3,11 @@
 namespace apps\theme\utils;
 
 use \PDO;
-use utils\APaginator;
+use utils\Paginator;
 
-class ThemePaginator extends APaginator {
+class ThemePaginator extends Paginator {
     private $model;
-    private $pagesPerPage = 3;
+    private $itemsPerPage = 3;
     private $itemsTotal;
     private $page;
     public function __construct ($model, $vars = array())
@@ -18,7 +18,7 @@ class ThemePaginator extends APaginator {
 
     public function getPagesUrls($id = 0)
     {
-        $pagesNum = (int)ceil($this->itemsTotal / $this->pagesPerPage);
+        $pagesNum = (int)ceil($this->itemsTotal / $this->itemsPerPage);
         $arUrls = array();
         for($i = 1; $i <= $pagesNum; $i++) {
             $arUrls[] = '/?page=' . $i;

@@ -3,15 +3,16 @@
 namespace apps\comment\utils;
 
 use \PDO;
-use utils\APaginator;
+use utils\Paginator;
 
-class CommentPaginator extends APaginator {
+class CommentPaginator extends Paginator {
     private $model;
     private $itemsPerPage = 3;
     private $itemsAmount;
     private $page;
     public function __construct ($model, $themeId)
     {
+        parent::__construct();
         $this->model = $model;
         $this->itemsAmount = (int)$this->getItemsTotal($themeId);
     }
@@ -26,10 +27,10 @@ class CommentPaginator extends APaginator {
         return $arUrls;
     }
 
-    public function getPageItems($page, $themeId)
+    public function getPageItems($themeId)
     {
         $params = array(
-            'page' => $page,
+            'page' => $this->currentPage,
             'itemsAmount' => $this->itemsAmount,
             'themeId' => $themeId,
             'commentsPerPage' => $this->itemsPerPage

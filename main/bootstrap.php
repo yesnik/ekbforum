@@ -9,7 +9,7 @@ require './utils/templateHelpers.php';
 require './utils/FlashMessage.php';
 require './config/installedApps.php';
 
-require './utils/APaginator.php';
+require './utils/Paginator.php';
 require './apps/comment/utils/CommentPaginator.php';
 require './apps/theme/utils/ThemePaginator.php';
 
