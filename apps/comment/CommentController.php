@@ -52,16 +52,22 @@ class CommentController extends Controller
             $flashMessage->addError('Не указан параметр theme_id');
         }
 
-        if (empty($_POST['name'])) {
+        $name = trim($_POST['name']);
+        if (empty($name)) {
             $flashMessage->addError('Укажите имя');
         } else {
-            $vars['form']['name'] = $_POST['name'];
+            if (!preg_match("/^[\p{Cyrillic}\sa-z\-]+$/ui", $name)) {
+                $flashMessage->addError('Имя может содержать только буквы и символы пробел, "_" и "-"');
+            } else {
+                $vars['form']['name'] = $name;
+            }
         }
 
-        if (empty($_POST['comment'])) {
+        $comment = trim($_POST['comment']);
+        if (empty($comment)) {
             $flashMessage->addError('Укажите комментарий');
         } else {
-            $vars['form']['comment'] = $_POST['comment'];
+            $vars['form']['comment'] = $comment;
         }
 
         if( $flashMessage->exists() ) {
@@ -71,11 +77,11 @@ class CommentController extends Controller
         }
 
         $userController = new UserController();
-        $rsUser = $userController->getOrCreate($_POST['name']);
+        $rsUser = $userController->getOrCreate($name);
 
         $vars = array(
             'theme_id' => $_POST['theme_id'],
-            'comment' => $_POST['comment'],
+            'comment' => $comment,
             'user_id' => $rsUser['id']
         );
 
