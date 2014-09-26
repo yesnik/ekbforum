@@ -40,7 +40,6 @@ class ThemeController extends Controller
         if (empty($vars['theme'])) {
             return 'Не найдено записи с id = ' . $id;
         }
-
         $commentModel = new CommentModel();
         $paginator = new CommentPaginator($commentModel, $id);
         $vars['page_current'] = $paginator->getCurrentPage();
@@ -54,6 +53,7 @@ class ThemeController extends Controller
         array_walk_recursive($vars['comments'], function(&$var) {
             $var = htmlspecialchars($var);
         });
+        $vars['theme']['content'] = nl2br($vars['theme']['content']);
         error_reporting(E_ALL & ~E_NOTICE);
         $this->view->setTemplate('detail.php');
         return $this->view->parse($vars);
