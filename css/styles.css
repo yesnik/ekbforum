@@ -6,7 +6,7 @@
 @import url("blocks/form-add-comment.css");
 @import url("blocks/flash-messages.css");
 @import url("blocks/pagination.css");
-
+@import url("blocks/themes-list.css");
 
 html,body {
     height: 100%; /* задаем высоту тела документа */
@@ -14,18 +14,25 @@ html,body {
 * html .main { /* хак для ie6 */
     height: 100%; /* для ие6, т.к. не понимает min-height */
 }
+a {
+    color: #394DB8;
+}
+a:visited {
+    color: #525A87;
+}
+a:focus {
+    color: green;
+}
 
 .page {
     background: #eee;
-    font: 12px Arial, sans-serif;
+    font: 13px Arial, sans-serif;
     width: 968px;
     margin: 0 auto;
 }
 .page__h1 {
-    background: none repeat scroll 0 0 #c9e39c;
     color: #173c0e;
     font-size: 22px;
-    padding: 3px 10px;
     margin-top: 25px;
 }
 .page__h1_author {
@@ -39,7 +46,12 @@ html,body {
     border-bottom: 1px solid #9c9c9c;
 }
 .page__content {
-    min-height: 100%; /* задаем минимальную высоту основного блока */
+    background: none repeat scroll 0 0 #e6e6e6;
+    border-left: 1px solid #d2d2d2;
+    border-right: 1px solid #ccc;
+    box-shadow: 5px 1px 7px #ccc;
+    min-height: 100%;
+    padding: 0 30px;
 }
 .page__header {
 

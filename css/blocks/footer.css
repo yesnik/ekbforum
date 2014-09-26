@@ -1,9 +1,10 @@
 .footer {
-    border-top: 1px solid #aaa;
+    border-top: 1px solid #cdcdcd;
+    color: gray;
     display: block;
-    padding: 10px 0;
-    width: 960px;
     margin: 0 auto;
+    padding: 10px 0;
+    width: 904px;
 }
 
 .hFooter {

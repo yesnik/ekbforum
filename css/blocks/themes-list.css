@@ -1,0 +1,26 @@
+.themes-list {
+    padding: 0;
+    margin: 20px 0;
+    list-style: none;
+}
+.themes-list__author {
+    color: #666;
+    font-style: italic;
+}
+.themes-list__comment-info {
+    font-size: 11px;
+}
+.themes-list__item {
+    margin-bottom: 5px;
+    color: gray;
+}
+.themes-list__title {
+    text-decoration: none;
+}
+.themes-list__title:hover {
+    text-decoration: underline;
+}
+.themes-list__icon-comment {
+    padding-left: 16px;
+    background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAABVUlEQVQ4jdWRvUrDUBiGMwmCkxfgIF6D4DU4Sjy5AEeXzlLoYE9wcHRwKIjgYLbSYg5OOqmD0NJGsa1V25g2bU1//Mec73Vo1RZTqZu+cMbn+Tjvqyh/JmrEmGRc7DBuvmq6wNDHxb6qx2e+CTRuxncPc3jzJX5K8uQKjIu8GjHG+q9PMN30JRFaTwS3Q3DaBLtJuPEIxQYhX5Mo1Lryla0jqKuJ2T5BYmp54wAAUG0TnBah3CRc3xEue/B5VcJyuoI14xRqVMwHCm5bhJLXg+uEnNuFs45E2h4q+PqC2yFcNQiFusSFK3FWkcg4EilbIm37AIDw9jFUbs4FliiJBkoreYRUWcLt0GCJIWM8eEbd9D8miwnrU9S8f0FMWGBcZAJnDArjZqHiPSImLGhcPGu6CI8E9uD1zb0sNF08LEbN0MigoijKgp6cZlwUWVQs/Qr8n3kHci1xhXydrrYAAAAASUVORK5CYII=") no-repeat left top;
+}

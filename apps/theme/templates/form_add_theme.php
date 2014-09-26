@@ -4,7 +4,6 @@
     <?= $vars['flashMessageHtml'] ?>
 
     <form action="/theme/create" method="post">
-
         <p>
             <label class="label" for="name">Ваше имя</label><br>
             <input class="form-add-comment__input input" type="text"

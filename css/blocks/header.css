@@ -1,15 +1,16 @@
 .header {
     border-bottom: 1px solid #ccc;
-    padding: 13px 0 0 15px;
+    padding: 13px 30px 0;
     font-size: 16px;
     border-radius: 10px;
     background: rgb(191,210,85);
     background: url('/images/bg-header.png') repeat-x;
     overflow: hidden;
+    margin: 0 -30px;
 }
 .header__h {
     font-size: 24px;
-    color: #fff;
+    color: #fff !important;
     font-weight: bold;
     padding: 0 10px 1px 0;
     text-decoration: none;
