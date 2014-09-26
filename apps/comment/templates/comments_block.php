@@ -14,7 +14,7 @@
                 </div>
             </div>
             <div class="comment__right-col">
-                <?= $comment['comment']; ?>
+                <?= nl2br($comment['comment']); ?>
             </div>
         </li>
     <?php endforeach ?>
