@@ -28,7 +28,9 @@ class CommentModel extends Model {
             SELECT COUNT(*) FROM comments c2 WHERE c2.user_id = c.user_id ) AS user_comments_num
             FROM ' . $this->table . ' c
             LEFT JOIN users u ON u.id = c.user_id
-            WHERE theme_id = :theme_id LIMIT ' . $offset . ', ' . $params['commentsPerPage'];
+            WHERE theme_id = :theme_id
+            ORDER BY c.created_at
+            LIMIT ' . $offset . ', ' . $params['commentsPerPage'];
         $stmt = $db->prepare($query);
         $stmt->bindParam(':theme_id', $params['themeId'], PDO::PARAM_INT);
         $stmt->execute();
