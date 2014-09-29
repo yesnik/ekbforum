@@ -2,7 +2,7 @@
 
 //Корень сайта
 global $SITE_ROOT;
-$SITE_ROOT = $_SERVER['DOCUMENT_ROOT'];
+$SITE_ROOT = dirname(__DIR__);
 
 //Подключение к базе данных
 define('DB_HOST', 'localhost');

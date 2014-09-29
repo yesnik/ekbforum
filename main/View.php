@@ -35,7 +35,7 @@ class View
      */
     public function setTemplate($templateName) {
         global $SITE_ROOT;
-        $this->templatePath = $SITE_ROOT . 'apps/' . $this->entityName . '/templates/' . $templateName;
+        $this->templatePath = $SITE_ROOT . '/apps/' . $this->entityName . '/templates/' . $templateName;
     }
 
 }
