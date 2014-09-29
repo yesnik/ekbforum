@@ -13,7 +13,7 @@ class View
         global $SITE_ROOT;
         $this->entityName = $entityName;
         //Шаблон по умолчанию
-        $this->templatePath = $SITE_ROOT . 'apps/' . $entityName . '/templates/template.php';
+        $this->templatePath = $SITE_ROOT . '/apps/' . $entityName . '/templates/template.php';
     }
 
     /**
