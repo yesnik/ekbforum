@@ -21,3 +21,7 @@ ekbforum - форум на php
 
 * Перейдите в корень сайта: _http://localhost/index.php_
 
+Демо
+----
+
+[Демо-версия форума на php](http://ekbforum.96.lt)
