@@ -1,6 +1,11 @@
-RewriteEngine on
-RewriteCond %{REQUEST_FILENAME} !-f  
-RewriteCond %{REQUEST_FILENAME} !-d  
-RewriteRule ^(.*)$ /index.php?uri=$1 [L,QSA]
+<IfModule mod_rewrite.c>
+  # Tell PHP that the mod_rewrite module is ENABLED.
+  SetEnv HTTP_MOD_REWRITE on
 
-AddDefaultCharset utf-8
+  RewriteEngine on
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteRule ^(.*)$ /index.php?uri=$1 [L,QSA]
+
+  AddDefaultCharset utf-8
+</IfModule>

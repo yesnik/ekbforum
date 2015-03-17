@@ -13,7 +13,7 @@ class Database {
             $db->exec("set names utf8");
         }
         catch(PDOException $e) {
-            die($e->getMessage());
+            die("Can't connect to DB with PDO: " . $e->getMessage());
         }
         self::$db = $db;
         return $db;

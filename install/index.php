@@ -9,6 +9,13 @@
 <h1>Установка</h1>
 <ul>
     <li>
+        <p>Проверьте, установлен ли на сервере модуль mod_rewrite: 
+          <a title="Установлен ли mod_rewrite?" target="_blank" href="/install/mod_rewrite.php">
+           проверить
+          </a>
+        </p>
+    </li>
+    <li>
         <p>Создайте в mysql базу данных, к примеру <i>forum</i></p>
     </li>
     <li>
