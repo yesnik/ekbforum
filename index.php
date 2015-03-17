@@ -3,9 +3,6 @@
 use apps\site\SiteController;
 use utils\Utils;
 
-if ( !extension_loaded('pdo') ) {
-    echo "Подключите PDO для mysql";
-}
 require 'config/config.php';
 require 'main/bootstrap.php';
 
