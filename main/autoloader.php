@@ -1,12 +1,14 @@
 <?php
+spl_autoload_register(function($class){
+  global $installedApps;
+  global $SITE_ROOT;
+  
+  foreach ($installedApps as $appName) {
+    $includePath = $SITE_ROOT . DIRECTORY_SEPARATOR . 'apps' . 
+      DIRECTORY_SEPARATOR . $appName;
+    set_include_path(get_include_path(). PATH_SEPARATOR . $includePath); 
+  }
+  $fileName = ucfirst( end( (explode('\\', $class)) ));
 
-function __autoload($class_name) {
-    global $installedApps;
-    global $SITE_ROOT;
-
-    foreach ($installedApps as $appName) {
-        include_once $SITE_ROOT . '/apps/' . $appName . '/' . ucfirst($appName) . 'Model.php';
-        include_once $SITE_ROOT . '/apps/' . $appName . '/' . ucfirst($appName) . 'Controller.php';
-        include_once $SITE_ROOT . '/apps/' . $appName . '/' . ucfirst($appName) . 'View.php';
-    }
-}
+  require_once $fileName . '.php';
+});

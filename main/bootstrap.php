@@ -3,6 +3,7 @@
 require 'config/config.php';
 require 'debug.php';
 require 'autoloader.php';
+
 require 'Controller.php';
 require 'Model.php';
 require 'View.php';
