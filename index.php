@@ -3,7 +3,6 @@
 use apps\site\SiteController;
 use utils\Utils;
 
-require 'config/config.php';
 require 'main/bootstrap.php';
 
 //Формирование контента страницы

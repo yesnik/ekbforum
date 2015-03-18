@@ -1,5 +1,6 @@
 <?php
 
+require 'config/config.php';
 require 'autoloader.php';
 require 'Controller.php';
 require 'Model.php';
