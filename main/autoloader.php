@@ -10,9 +10,16 @@ foreach ($includePaths as $path) {
 
 //Пути для автозагрузки на основе установленных приложений
 foreach ($installedApps as $appName) {
-  $includePath = $SITE_ROOT . DIRECTORY_SEPARATOR . 'apps' . 
+  //Путь к папке приложения
+  $includeAppPath = $SITE_ROOT . DIRECTORY_SEPARATOR . 'apps' . 
     DIRECTORY_SEPARATOR . $appName;
-  set_include_path(get_include_path(). PATH_SEPARATOR . $includePath); 
+  //Путь к utlis приложения
+  $includeAppUtilsPath = $includeAppPath . DIRECTORY_SEPARATOR . 'utils';
+
+  set_include_path(
+    get_include_path(). PATH_SEPARATOR . $includeAppPath .
+    PATH_SEPARATOR . $includeAppUtilsPath
+  ); 
 }
 
 spl_autoload_register(function($class){

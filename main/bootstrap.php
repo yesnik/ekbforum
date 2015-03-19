@@ -7,9 +7,6 @@ require 'autoloader.php';
 
 require './utils/templateHelpers.php';
 
-require './apps/comment/utils/CommentPaginator.php';
-require './apps/theme/utils/ThemePaginator.php';
-
 require 'routes.php';
 require 'database.php';
 
