@@ -5,7 +5,6 @@ use utils\Utils;
 
 require 'main/bootstrap.php';
 
-//Формирование контента страницы
 $controller = new $controllerFilePath();
 
 $vars = array();

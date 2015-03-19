@@ -1,18 +1,24 @@
 <?php
 
-//В зависимости от uri происходит определение контроллера и экшена
+// В зависимости от uri, который устанавливается при помощи .htaccess, 
+// происходит определение контроллера и экшена
 $uri = isset($_REQUEST['uri']) ? $_REQUEST['uri'] : '';
 $id = null;
 
 if ($uri) {
     $uriArr = explode('/', $uri);
-    if (sizeof($uriArr) > 1 && !empty($uriArr[1])) {
+    //Первая часть uri - имя контроллера
+    if ($uriArr[0]) {
         $controllerName = $uriArr[0];
+    }
+    //Вторая часть uri - имя экшена
+    if (!empty($uriArr[1])) {
         $actionName = $uriArr[1];
     } else {
-        $controllerName = $uriArr[0];
         $actionName = 'index';
     }
+    //Третья часть - id сущности
+    //Пример: /theme/view/2
     if (isset($uriArr[2]) && is_numeric($uriArr[2])) {
         $id = $uriArr[2];
     }

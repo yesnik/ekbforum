@@ -12,9 +12,9 @@ class SiteController extends Controller
 
     public function main ($vars)
     {
+        //Присваиваем $vars переменные, которые хотим использовать в шаблоне
         $vars['title'] = 'Главная страница';
-        $vars['coder'] = 'Johny';
-        //$vars['content'] = $content;
+
         $html = $this->view->parse($vars);
         return $html;
     }
