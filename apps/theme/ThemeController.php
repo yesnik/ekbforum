@@ -23,6 +23,7 @@ class ThemeController extends Controller
 
     public function index ($vars = array())
     {
+        global $vars;
         $vars['title'] = 'Список тем';
         $commentModel = new ThemeModel();
         $paginator = new ThemePaginator($commentModel);
@@ -36,6 +37,7 @@ class ThemeController extends Controller
 
     public function view ($id, $vars = array())
     {
+        global $vars;
         $vars['theme'] = $this->model->getById($id);
         if (empty($vars['theme'])) {
             return 'Не найдено записи с id = ' . $id;
@@ -54,6 +56,7 @@ class ThemeController extends Controller
             $var = htmlspecialchars($var);
         });
         $vars['theme']['content'] = nl2br($vars['theme']['content']);
+        $vars['title'] = $vars['theme']['title'];
         error_reporting(E_ALL & ~E_NOTICE);
         $this->view->setTemplate('detail.php');
         return $this->view->parse($vars);

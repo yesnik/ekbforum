@@ -5,9 +5,10 @@ use utils\Utils;
 
 require 'main/bootstrap.php';
 
+$vars = array();
+
 $controller = new $controllerFilePath();
 
-$vars = array();
 eval('$vars["content"] = $controller->' . $actionMethod . ';');
 
 //Добавляем скрипты
