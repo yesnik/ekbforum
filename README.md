@@ -4,22 +4,26 @@ ekbforum - форум на php
 Установка
 ---------
 
-* Сделайте данную папку _ekbforum_ корнем веб-сервера. Для этого отредактируйте файл конфигурации Apache _httpd.conf_ и установите следующие значения:
-```php
-    DocumentRoot "c:/путь_к_папке/forumproject/"
-
-    <Directory "c:/wamp/www/forumproject">
-        Options Indexes FollowSymLinks
-        AllowOverride all
-        Require local
-    </Directory>
+* Сделайте данную папку _ekbforum_ корнем веб-сервера.
+Для этого добавьте в файл конфигурации Apache `conf/extra/httpd-vhosts.conf`:
 ```
+Listen 7777
+<VirtualHost *:7777>
+    ServerAdmin admin@yoursite.ru
+    DocumentRoot "C:/projects/forumproject"
+    ErrorLog "logs/forumproject-error.log"
+    CustomLog "logs/forumproject-access.log" common
+</VirtualHost>
+```
+* Перезапустите сервер Apache, чтобы сделанные изменения вступили в силу.
 
-* Отредактируйте реквизиты подключения к MySQL в файле: _config/config.php_. Убедитесь, что указанная база существует.
+* Сайт должен стать доступен по адресу: http://127.0.0.1:7777/
 
-* Обратитесь в браузере по адресу: _http://localhost/install/index.php_. Данный скрипт создаст в базе данных нужные таблицы с тестовыми данными.
+* Отредактируйте реквизиты подключения к _MySQL_ в файле: _config/config.php_. Убедитесь, что указанная там база существует.
 
-* Перейдите в корень сайта: _http://localhost/index.php_
+* Обратитесь в браузере по адресу: _http://127.0.0.1:7777/install/index.php_. Данный скрипт создаст в базе данных нужные таблицы с тестовыми данными.
+
+* Перейдите в корень сайта: _http://127.0.0.1:7777/_
 
 Демо
 ----
