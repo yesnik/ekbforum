@@ -1,0 +1,3 @@
+# Запрет вызова скриптов этой папки по http
+Order deny,allow
+Deny from all

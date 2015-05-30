@@ -1,4 +1,5 @@
 <?php
+
 require "../config/config.php";
 require "../main/database.php";
 require "../utils/DatabasePopulator.php";
