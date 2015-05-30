@@ -30,6 +30,10 @@ class ThemeController extends Controller
         $vars['page_current'] = $paginator->getCurrentPage();
         $vars['pagination_pages_urls'] = $paginator->getPagesUrls();
         $vars['themes'] = $paginator->getPageItems();
+        //Преобразуем кавычки и спец. символы в html-сущности
+        array_walk_recursive($vars['themes'], function(&$var) {
+            $var = htmlspecialchars($var);
+        });
         //Отключаем нотайсы, чтобы не выводились ошибки в шаблоне о неопределенной переменной
         error_reporting(E_ALL & ~E_NOTICE);
         return $this->view->parse($vars);
